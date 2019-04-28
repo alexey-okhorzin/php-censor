@@ -47,17 +47,6 @@ class BuildInterpolator
         $this->interpolationVars['%BRANCH_LINK%']     = $build->getBranchLink();
         $this->interpolationVars['%ENVIRONMENT%']     = $build->getEnvironment();
 
-        /** @deprecated The variables are deprecated and will be deleted in version 2.0. Use the variables '%COMMIT_ID%', '%SHORT_COMMIT_ID%' etc. instead. */
-        $this->interpolationVars['%COMMIT%']       = $this->interpolationVars['%COMMIT_ID%'];
-        $this->interpolationVars['%SHORT_COMMIT%'] = $this->interpolationVars['%SHORT_COMMIT_ID%'];
-        $this->interpolationVars['%COMMIT_EMAIL%'] = $this->interpolationVars['%COMMITTER_EMAIL%'];
-        $this->interpolationVars['%COMMIT_URI%']   = $this->interpolationVars['%COMMIT_LINK%'];
-        $this->interpolationVars['%PROJECT%']      = $this->interpolationVars['%PROJECT_ID%'];
-        $this->interpolationVars['%PROJECT_URI%']  = $this->interpolationVars['%PROJECT_LINK%'];
-        $this->interpolationVars['%BUILD%']        = $this->interpolationVars['%BUILD_ID%'];
-        $this->interpolationVars['%BUILD_URI%']    = $this->interpolationVars['%BUILD_LINK%'];
-        $this->interpolationVars['%BRANCH_URI%']   = $this->interpolationVars['%BRANCH_LINK%'];
-
         putenv('PHP_CENSOR=1');
         putenv('PHP_CENSOR_COMMIT_ID=' . $this->interpolationVars['%COMMIT_ID%']);
         putenv('PHP_CENSOR_SHORT_COMMIT_ID=' . $this->interpolationVars['%SHORT_COMMIT_ID%']);
@@ -73,17 +62,6 @@ class BuildInterpolator
         putenv('PHP_CENSOR_BRANCH=' . $this->interpolationVars['%BRANCH%']);
         putenv('PHP_CENSOR_BRANCH_LINK=' . $this->interpolationVars['%BRANCH_LINK%']);
         putenv('PHP_CENSOR_ENVIRONMENT=' . $this->interpolationVars['%ENVIRONMENT%']);
-
-        /** @deprecated This environment variables are deprecated and will be deleted in version 2.0. Use the variables 'PHP_CENSOR_' instead. */
-        putenv('PHP_CENSOR_COMMIT=' . $this->interpolationVars['%COMMIT_ID%']);
-        putenv('PHP_CENSOR_SHORT_COMMIT=' . $this->interpolationVars['%SHORT_COMMIT_ID%']);
-        putenv('PHP_CENSOR_COMMIT_EMAIL=' . $this->interpolationVars['%COMMITTER_EMAIL%']);
-        putenv('PHP_CENSOR_COMMIT_URI=' . $this->interpolationVars['%COMMIT_LINK%']);
-        putenv('PHP_CENSOR_PROJECT=' . $this->interpolationVars['%PROJECT_ID%']);
-        putenv('PHP_CENSOR_PROJECT_URI=' . $this->interpolationVars['%PROJECT_LINK%']);
-        putenv('PHP_CENSOR_BUILD=' . $this->interpolationVars['%BUILD_ID%']);
-        putenv('PHP_CENSOR_BUILD_URI=' . $this->interpolationVars['%BUILD_LINK%']);
-        putenv('PHP_CENSOR_BRANCH_URI=' . $this->interpolationVars['%BRANCH_LINK%']);
     }
 
     /**
