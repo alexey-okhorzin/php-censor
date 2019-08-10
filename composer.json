@@ -54,6 +54,8 @@
         "ext-SimpleXML": "*",
         "ext-curl":      "*",
 
+        "php-censor/common": "dev-master",
+
         "swiftmailer/swiftmailer":         "^6.1",
         "symfony/yaml":                    "^4.2",
         "symfony/console":                 "^4.2",
